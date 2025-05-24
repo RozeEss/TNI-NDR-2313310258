@@ -6,14 +6,14 @@ import streamlit as st
 from sklearn.linear_model import LinearRegression
 from pandas.tseries.offsets import MonthBegin
 
-# Set font for Thai characters
+#Fonts
 matplotlib.rcParams['font.family'] = 'DejaVu Sans'
 
-# Sidebar navigation
+#Sidebar
 st.sidebar.title("เมนู")
 page = st.sidebar.selectbox("เลือกหน้า", ["Graph", "About"])
 
-# Thai date to Gregorian date conversion
+#Date conversion TH
 def convert_thai_date(thai_date_str):
     thai_months = {
         "ม.ค.": "01", "ก.พ.": "02", "มี.ค.": "03", "เม.ย.": "04",
@@ -37,13 +37,13 @@ if page == "Graph":
         st.error("Error: 'BYDCOM80_6M.xlsx' not found.")
         st.stop()
 
-    # Set column names
+    
     df.columns = [
         "วันที่", "ราคาเปิด", "ราคาสูงสุด", "ราคาต่ำสุด", "ราคาเฉลี่ย", "ราคาปิด",
         "เปลี่ยนแปลง", "เปลี่ยนแปลง(%)", "ปริมาณ(พันหุ้น)", "มูลค่า(ล้านบาท)"
     ]
 
-    # Clean and convert dates
+    # Clean and use convert dates function
     df = df[~df["วันที่"].isna() & ~df["วันที่"].str.contains("วันที่")]
     df["วันที่"] = pd.to_datetime(df["วันที่"].apply(convert_thai_date))
     df = df.dropna().sort_values("วันที่")
@@ -55,7 +55,7 @@ if page == "Graph":
     model.fit(X, y)
     trend = model.predict(X)
 
-    # Plot
+    # Plot graph
     st.title("BYDCOM80 Stock Price Trend Analysis (May 3 - Nov 3, 2025)")
     st.write("ข้อมูลราคาปิดล่าสุดของวันที่ 3 พ.ค. 2568")
     
