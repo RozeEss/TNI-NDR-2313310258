@@ -56,7 +56,7 @@ if page == "Graph":
     trend = model.predict(X)
 
     # Plot graph
-    st.title("BYDCOM80 Stock Price Trend Analysis (May 23 - Nov 3, 2025)")
+    st.title("BYDCOM80 Stock Price Trend Analysis (May 23 - Nov 3, 2024)")
     st.write("ข้อมูลราคาปิดล่าสุดของวันที่ 23 พ.ค. 2568")
     
     plt.figure(figsize=(14, 7))
@@ -80,7 +80,7 @@ if page == "Graph":
     labels = [start_date.strftime('%b')] + [d.strftime('%b') for d in monthly_ticks]
     plt.xticks(all_ticks, labels, rotation=45)
 
-    plt.title("BYDCOM80 Closing Price Trend (May 23 - Nov 3, 2025)", fontsize=16)
+    plt.title("BYDCOM80 Closing Price Trend (May 23 - Nov 3, 2024)", fontsize=16)
     plt.xlabel("Date", fontsize=14)
     plt.ylabel("Closing Price (Baht)", fontsize=14)
     plt.legend(fontsize=14)
@@ -91,7 +91,7 @@ if page == "Graph":
 
     # Summary statistics
     st.subheader("สรุป")
-    st.write(f'ราคาหุ้นของ BYDCOM80 มีแนวโน้มเพิ่มขึ้นอย่างต่อเนื่องในช่วง 6 เดือนที่ผ่านมา โดยมีราคาเฉลี่ยปิดที่ {y.mean():.4f} บาท และราคาสูงสุดอยู่ที่ {y.max():.4f} บาท ราคาปรับตัวขึ้นเฉลี่ยวันละ 0.0042 บาท ซึ่งสะท้อนถึงความเชื่อมั่นของนักลงทุนในช่วงเวลาที่ผ่านมา')
+    st.write(f'ราคาหุ้นของ BYDCOM80 มีแนวโน้มเพิ่มขึ้นอย่างต่อเนื่องในช่วง 6 เดือนที่ผ่านมา โดยมีราคาเฉลี่ยปิดที่ {y.mean():.4f} บาท และราคาสูงสุดอยู่ที่ {y.max():.4f} บาท ราคาปรับตัวขึ้นเฉลี่ยวันละ 0.0042 บาท ซึ่งสะท้อนถึงความเชื่อมั่นของนักลงทุนที่มากขื้นในเวลาที่ผ่านมา')
     st.subheader("สรุปสถิติต่างๆของราคาปิด")
     st.write(f"**ราคาเฉลี่ยปิด:** {y.mean():.4f} Baht")
     st.write(f"**ราคาปิดต่ำสุด:** {y.min():.4f} Baht")
