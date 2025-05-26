@@ -57,7 +57,7 @@ if page == "Graph":
 
     # Plot graph
     st.title("BYDCOM80 Stock Price Trend Analysis (May 3 - Nov 3, 2025)")
-    st.write("ข้อมูลราคาปิดล่าสุดของวันที่ 3 พ.ค. 2568")
+    st.write("ข้อมูลราคาปิดล่าสุดของวันที่ 23 พ.ค. 2568")
     
     plt.figure(figsize=(14, 7))
     plt.plot(df["วันที่"], y, label="Actual Closing Price", color="blue", linewidth=2)
@@ -67,7 +67,7 @@ if page == "Graph":
     plt.annotate('Start: May 3, 2025', xy=(df["วันที่"].iloc[0], y[0]), 
                  xytext=(df["วันที่"].iloc[0], y[0] + 0.05),
                  arrowprops=dict(facecolor='black', shrink=0.05), fontsize=10)
-    plt.annotate('End: Nov 3, 2025', xy=(df["วันที่"].iloc[-1], y[-1]), 
+    plt.annotate('End: Nov 23, 2025', xy=(df["วันที่"].iloc[-1], y[-1]), 
                  xytext=(df["วันที่"].iloc[-1], y[-1] - 0.05),
                  arrowprops=dict(facecolor='black', shrink=0.05), fontsize=10)
 
