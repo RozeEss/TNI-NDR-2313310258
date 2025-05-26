@@ -56,7 +56,7 @@ if page == "Graph":
     trend = model.predict(X)
 
     # Plot graph
-    st.title("BYDCOM80 Stock Price Trend Analysis (May 3 - Nov 3, 2025)")
+    st.title("BYDCOM80 Stock Price Trend Analysis (May 23 - Nov 3, 2025)")
     st.write("ข้อมูลราคาปิดล่าสุดของวันที่ 23 พ.ค. 2568")
     
     plt.figure(figsize=(14, 7))
