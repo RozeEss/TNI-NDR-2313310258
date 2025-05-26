@@ -71,7 +71,7 @@ if page == "Graph":
                  xytext=(df["วันที่"].iloc[-1], y[-1] - 0.05),
                  arrowprops=dict(facecolor='black', shrink=0.05), fontsize=10)
 
-    # Set x-axis
+    # Set x-axis (Add Month's name แทน Dates)
     plt.xlim(df["วันที่"].min(), df["วันที่"].max())
     start_date = df["วันที่"].min()
     end_date = df["วันที่"].max()
@@ -80,7 +80,7 @@ if page == "Graph":
     labels = [start_date.strftime('%b')] + [d.strftime('%b') for d in monthly_ticks]
     plt.xticks(all_ticks, labels, rotation=45)
 
-    plt.title("BYDCOM80 Closing Price Trend (May 3 - Nov 3, 2025)", fontsize=16)
+    plt.title("BYDCOM80 Closing Price Trend (May 23 - Nov 3, 2025)", fontsize=16)
     plt.xlabel("Date", fontsize=14)
     plt.ylabel("Closing Price (Baht)", fontsize=14)
     plt.legend(fontsize=14)
