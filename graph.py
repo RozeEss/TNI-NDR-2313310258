@@ -11,7 +11,7 @@ matplotlib.rcParams['font.family'] = 'DejaVu Sans'
 
 # Sidebar
 st.sidebar.title("เมนู")
-page = st.sidebar.selectbox("เลือกหน้า", ["Graph", "About", "About BYD"])
+page = st.sidebar.selectbox("เลือกหน้า", ["Graph", "About this project", "About BYD"])
 
 # Date conversion TH
 def convert_thai_date(thai_date_str):
@@ -99,7 +99,7 @@ if page == "Graph":
     st.write(f"**แนวโน้ม (การเปลี่ยนแปลงราคาเฉลี่ยต่อวัน):** {model.coef_[0]:.6f} บาท/วัน")
 
 # About page
-if page == "About":
+if page == "About this project":
     st.title("เกี่ยวกับโครงการ")
     st.markdown("""
     โครงการนี้เป็นส่วนหนึ่งของรายวิชา BIS-419
