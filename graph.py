@@ -6,14 +6,14 @@ import streamlit as st
 from sklearn.linear_model import LinearRegression
 from pandas.tseries.offsets import MonthBegin
 
-#Fonts
+# Fonts
 matplotlib.rcParams['font.family'] = 'DejaVu Sans'
 
-#Sidebar
+# Sidebar
 st.sidebar.title("เมนู")
-page = st.sidebar.selectbox("เลือกหน้า", ["Graph", "About"])
+page = st.sidebar.selectbox("เลือกหน้า", ["Graph", "About", "About BYD"])
 
-#Date conversion TH
+# Date conversion TH
 def convert_thai_date(thai_date_str):
     thai_months = {
         "ม.ค.": "01", "ก.พ.": "02", "มี.ค.": "03", "เม.ย.": "04",
@@ -37,7 +37,6 @@ if page == "Graph":
         st.error("Error: 'BYDCOM80_6M.xlsx' not found.")
         st.stop()
 
-    
     df.columns = [
         "วันที่", "ราคาเปิด", "ราคาสูงสุด", "ราคาต่ำสุด", "ราคาเฉลี่ย", "ราคาปิด",
         "เปลี่ยนแปลง", "เปลี่ยนแปลง(%)", "ปริมาณ(พันหุ้น)", "มูลค่า(ล้านบาท)"
@@ -105,3 +104,13 @@ if page == "About":
     โครงการนี้เป็นส่วนหนึ่งของรายวิชา BIS-419
 มีวัตถุประสงค์เพื่อวิเคราะห์แนวโน้มราคาหุ้นจากข้อมูลย้อนหลัง 6 เดือน โดยใช้ Python สำหรับประมวลผลข้อมูล, Git สำหรับจัดการเวอร์ชันโค้ด และแสดงผลผ่านเว็บไซต์ด้วย Streamlit
     """)
+
+# New About BYD page
+if page == "About BYD":
+    st.title("เกี่ยวกับ BYD")
+    st.markdown("""
+    <div style='background-color: #f5f5f5; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);'>
+        <h2>บริษัท BYD (Build Your Dreams)</h2>
+        <p>BYD เป็นบริษัทสัญชาติจีนที่ก่อตั้งขึ้นในปี 1995 โดยเน้นการผลิตยานยนต์ไฟฟ้า (EV) และแบตเตอรี่ โดยมีสำนักงานใหญ่ตั้งอยู่ที่เมืองเซินเจิ้น BYD เป็นผู้นำในอุตสาหกรรมยานยนต์ไฟฟ้าทั่วโลก และหุ้นของบริษัท (เช่น BYDCOM80) ได้รับความสนใจจากนักลงทุนอย่างมาก เนื่องจากความก้าวหน้าทางเทคโนโลยีและการเติบโตในตลาดพลังงานสะอาด</p>
+    </div>
+    """, unsafe_allow_html=True)
